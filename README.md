@@ -38,7 +38,7 @@ In addition, we aim to gather data via energy.gov on the current locations of th
 To streamline our project, we make two key assumptions. Firstly, we assume uniform power consumption demand for each vehicle, approximating it based on the average power consumption of electric cars. Secondly, we consider the construction cost as well as the power capacity of a new station to be consistent across all locations and irrespective of demand variations.
 
 ## 5. Result
-
+[Final Report](https://github.com/lqminhhh/Charging-Location-Optimization/blob/main/DA353_Final_Report.pdf)
 ## 6. Reference
 Washington State Department of Licensing - Electric Vehicle Population Data. Retrieved
 from: https://catalog.data.gov/dataset/electric-vehicle-population-data
