@@ -1,4 +1,5 @@
 # Optimized Strategy for Electric Vehicle Charging Station Allocation
+Authors: Minh Le & Yen Nguyen
 ---
 ## 1. Background and Introduction
 The adoption of electric vehicles (EVs) is increasing worldwide, mainly driven by growing awareness of environmental issues and technological advancements. These types of vehicles are now favored and recognized by the majority of consumers. With the increasing number of new energy electric vehicles, the demand for charging stations for these vehicles is also increasing. This makes the strategic placement of charging stations crucial, helping the government optimize infrastructure efficiency by minimizing the need for excessive stations. Finding the right locations for these stations is therefore important, ensuring they can provide convenient access for all EV users, while contributing to a more sustainable future of transportation.
@@ -35,14 +36,16 @@ In addition, we aim to gather data via energy.gov on the current locations of th
 - Assess the accuracy and effectiveness of the optimized charging station locations by comparing the model results obtained from the optimization process with real-world charging station locations.
 
 ## 4. Assumptions
-To streamline our project, we make two key assumptions. Firstly, we assume uniform power consumption demand for each vehicle, approximating it based on the average power consumption of electric cars. Secondly, we consider the construction cost as well as the power capacity of a new station to be consistent across all locations and irrespective of demand variations.
+To streamline our project, we operate under the following assumptions:
+- We assume a uniform power consumption demand for each vehicle, approximating it based on the average power consumption of electric cars.
+- The construction cost and power capacity of a new station are considered consistent across all locations, irrespective of demand variations.
+- Vehicle locations are specified by ”Postal Code,” indicating that each car is located within the designated area represented by its postal code.
+- Each charger is capable of providing power to a single car
 
 ## 5. Result
-
+We use Gurobi in Python to solve our model. The number of cars can be covered by the stations are 22236, which are about 75.51% of the total demand.This percentage also accounts for a significant portion of individuals who can conveniently charge their vehicles at home. The full report of our result can be found [here](https://github.com/lqminhhh/Charging-Location-Optimization/blob/main/DA353_Final_Report.pdf).
 ## 6. Reference
-Washington State Department of Licensing - Electric Vehicle Population Data. Retrieved
-from: https://catalog.data.gov/dataset/electric-vehicle-population-data
-
-Alternative Fuels Data Center (AFDC) - Electric Vehicle Charging Station Locator.
-Retrieved from:
-https://afdc.energy.gov/fuels/electricity-locations#/find/nearest?fuel=ELEC
+- Washington State Department of Licensing - Electric Vehicle Population Data. Retrieved from: https://catalog.data.gov/dataset/electric-vehicle-population-data
+- Alternative Fuels Data Center (AFDC) - Electric Vehicle Charging Station Locator. Retrieved from: https://afdc.energy.gov/fuels/electricity-locations#/find/nearest?fuel=ELEC
+- King County Metro Zero-Emission Fleet. Retrieved from: https://www.kingcountymetrozefleet.com/?lng=en
+- King County Sustainable Purchasing Guide for Vehicles. Retrieved from: [https://kingcounty.gov/en/legacy/depts/finance-business-operations/procurement/for-government/environmental-purchasing_guide/vehicles](https://kingcounty.gov/en/legacy/depts/finance-business-operations/procurement/for-government/environmental-purchasing/purchasing_guide/vehicles)
