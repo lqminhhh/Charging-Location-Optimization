@@ -1,7 +1,9 @@
 # ⚡ Optimized Strategy for Electric Vehicle Charging Station Allocation
 
-Authors: Minh Le & Yen Nguyen
-Courses: DA353 - Advanced Prescriptive Methods | Denison University
+**Authors:** Minh Le & Yen Nguyen
+
+**Courses:** DA353 - Advanced Prescriptive Methods | Denison University
+
 ---
 ## 🔍 Overview
 With the surge in electric vehicle (EV) adoption, optimal placement of charging stations has become critical. This project aims to strategically allocate EV charging stations in the Seattle metropolitan area to cover the largest number of vehicles while minimizing the number of stations needed.
