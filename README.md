@@ -1,51 +1,63 @@
-# Optimized Strategy for Electric Vehicle Charging Station Allocation
+# ⚡ Optimized Strategy for Electric Vehicle Charging Station Allocation
+
 Authors: Minh Le & Yen Nguyen
+Courses: DA353 - Advanced Prescriptive Methods | Denison University
 ---
-## 1. Background and Introduction
-The adoption of electric vehicles (EVs) is increasing worldwide, mainly driven by growing awareness of environmental issues and technological advancements. These types of vehicles are now favored and recognized by the majority of consumers. With the increasing number of new energy electric vehicles, the demand for charging stations for these vehicles is also increasing. This makes the strategic placement of charging stations crucial, helping the government optimize infrastructure efficiency by minimizing the need for excessive stations. Finding the right locations for these stations is therefore important, ensuring they can provide convenient access for all EV users, while contributing to a more sustainable future of transportation.
-For this project, we aim to optimize the allocation of electric vehicles charging stations locations that effectively minimize the number of stations. 
+## 🔍 Overview
+With the surge in electric vehicle (EV) adoption, optimal placement of charging stations has become critical. This project aims to strategically allocate EV charging stations in the Seattle metropolitan area to cover the largest number of vehicles while minimizing the number of stations needed.
 
-## 2. Dataset
-Our primary dataset comprises registered Battery Electric Vehicles (BEVs) and Plug-in Hybrid Electric Vehicles (PHEVs) from the Washington State Department of Licensing (DOL) via data.gov and is intended for public access and use. This dataset provides valuable insights into vehicle distribution and usage patterns, crucial for optimizing charging station locations. The data contains **17 columns and 177,867 rows**. However, we plan to only use the following columns:
-- *County*: Geographic region of a state that a vehicle's owner is listed to reside within
-- *City*: City in which the registered owner resides.
-- *Postal*: The 5 digit zip code in which the registered owner resides.
-- *Electric Range*: Describes how far a vehicle can travel purely on its electric charge.
-- *Vehicle Location*: The center of the ZIP Code for the registered vehicle.
+## 🗂 Project & Structure
+```
+├── data/
+│   ├── electric_stations.csv            # Location data of existing stations
+│   └── Electric_Vehicle_Population.csv  # Registered EVs in WA State
+├── data_collection.ipynb                # API data collection and preprocessing
+├── data_modeling.ipynb                  # Optimization model implementation
+├── Final_Presentation.pdf               # Summary presentation
+├── Final_Report.pdf                     # Detailed project report
+└── README.md                            # This file
+```
 
-In addition, we aim to gather data via energy.gov on the current locations of the charging stations in the area for model evaluation and improvement. We plan to get the data by requesting the API url with our own developer API key and the queried parameters related to electric vehicle stations. The following columns will be used for further analysis:
-- *City*: City in which the station is placed
-- *State*: State in which the station is placed
-- *Latitude*: The latitude of the station
-- *Longitude*: The longitude of the station
+## 🛠 Methodology
+1. Data Preprocessing
 
-## 3. Methodology
-1. Data Preprocessing: 
-- Refine the dataset obtained from the Washington State Department of Licensing to extract necessary columns and focus on the Seattle metropolitan area.
-- Clean the data to remove any inconsistencies or outliers that may affect the accuracy of the optimization model.
-2. Model Formulation: 
-- Formulate a linear optimization model to determine the optimal allocation of electric vehicle charging stations within the Seattle metropolitan area.
-- Define decision variables, objective function, and constraints of the problem. Later, we will write a mathematical formulation to represent this model. 
-3. Model Implementation: 
-- Utilize the Gurobi optimization library and Python to implement the formulated optimization model.
-- Develop efficient algorithms and scripts to solve the linear optimization problem and obtain the optimal solution for charging station locations.
-4. Sensitivity Analysis: 
-- Conduct sensitivity analysis to assess the robustness of the optimization model by using shadow prices and reduced costs.
-- Evaluate the model's performance and stability by examining its response to changes in key parameters, such as the threshold for maximum driving distance 
-5. Validation: 
-- Assess the accuracy and effectiveness of the optimized charging station locations by comparing the model results obtained from the optimization process with real-world charging station locations.
+- Filtered EV data to Seattle area; cleaned missing and invalid entries.
 
-## 4. Assumptions
-To streamline our project, we operate under the following assumptions:
-- We assume a uniform power consumption demand for each vehicle, approximating it based on the average power consumption of electric cars.
-- The construction cost and power capacity of a new station are considered consistent across all locations, irrespective of demand variations.
-- Vehicle locations are specified by ”Postal Code,” indicating that each car is located within the designated area represented by its postal code.
-- Each charger is capable of providing power to a single car
+- Collected current station data using energy.gov API.
 
-## 5. Result
-We use Gurobi in Python to solve our model. The number of cars can be covered by the stations are 22236, which are about 75.51% of the total demand.This percentage also accounts for a significant portion of individuals who can conveniently charge their vehicles at home. The full report of our result can be found [here](https://github.com/lqminhhh/Charging-Location-Optimization/blob/main/DA353_Final_Report.pdf).
-## 6. Reference
-- Washington State Department of Licensing - Electric Vehicle Population Data. Retrieved from: https://catalog.data.gov/dataset/electric-vehicle-population-data
-- Alternative Fuels Data Center (AFDC) - Electric Vehicle Charging Station Locator. Retrieved from: https://afdc.energy.gov/fuels/electricity-locations#/find/nearest?fuel=ELEC
-- King County Metro Zero-Emission Fleet. Retrieved from: https://www.kingcountymetrozefleet.com/?lng=en
-- King County Sustainable Purchasing Guide for Vehicles. Retrieved from: [https://kingcounty.gov/en/legacy/depts/finance-business-operations/procurement/for-government/environmental-purchasing_guide/vehicles](https://kingcounty.gov/en/legacy/depts/finance-business-operations/procurement/for-government/environmental-purchasing/purchasing_guide/vehicles)
+2. Model Formulation
+
+- Built a linear optimization model in Python with Gurobi.
+
+- Objective: minimize the number of stations while ensuring maximum vehicle coverage.
+
+3. Model Solving & Validation
+
+- Conducted sensitivity analysis (e.g., max driving distance, shadow price).
+
+- Compared optimized locations with actual station map for accuracy.
+
+## 🔁 Reproducibility
+- Install dependencies listed in the notebooks.
+
+- Run `data_collection.ipynb` to gather & clean data.
+
+- Execute `data_modeling.ipynb` to build and solve the optimization model.
+
+## 📈 Key Findings
+- The model covers ~75.5% of total EVs using a reduced number of strategically placed stations.
+
+- Coverage includes users with limited home-charging access.
+
+- Majority of high-demand zones align with current real-world station clusters.
+
+## Reference
+- https://catalog.data.gov/dataset/electric-vehicle-population-data
+- https://afdc.energy.gov/fuels/electricity-locations#/find/nearest?fuel=ELEC
+- https://www.kingcountymetrozefleet.com/?lng=en
+- [https://kingcounty.gov/en/legacy/depts/finance-business-operations/procurement/for-government/environmental-purchasing_guide/vehicles](https://kingcounty.gov/en/legacy/depts/finance-business-operations/procurement/for-government/environmental-purchasing/purchasing_guide/vehicles)
+
+## 📬 Contact
+- Minh Le – le_m2@denison.edu
+
+- Yen Nguyen – Contact info available on request
